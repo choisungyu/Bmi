@@ -27,14 +27,20 @@ class BmiMainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         button_bmi.setOnClickListener {
-            val bundle = bundleOf(
-                "height" to edit_text_height.text.toString().toDouble(),
-                "weight" to edit_text_weight.text.toString().toDouble()
-            )
+//            val bundle = bundleOf(
+//                "height" to edit_text_height.text.toString().toDouble(),
+//                "weight" to edit_text_weight.text.toString().toDouble()
+//            )
 //            bundle.putDouble("height", edit_text_height.text.toString().toDouble())
 //            bundle.putDouble("height", edit_text_weight.text.toString().toDouble())
 
-            it.findNavController().navigate(R.id.action_bmiMainFragment_to_bmiMain2Fragment, bundle)
+            val action = BmiMainFragmentDirections.actionBmiMainFragmentToBmiMain2Fragment(
+                edit_text_height.text.toString().toFloat(),
+                edit_text_weight.text.toString().toFloat()
+            )
+
+//            it.findNavController().navigate(R.id.action_bmiMainFragment_to_bmiMain2Fragment, bundle)
+            it.findNavController().navigate(action)
         }
     }
 }

@@ -9,7 +9,16 @@
         android:id="@+id/bmiMain2Fragment"
         android:name="com.example.bmi.BmiMain2Fragment"
         android:label="출력부분"
-        tools:layout="@layout/fragment_bmi_main2" />
+        tools:layout="@layout/fragment_bmi_main2" >
+        <argument
+            android:name="height"
+            app:argType="float"
+            android:defaultValue="0.0" />
+        <argument
+            android:name="weight"
+            app:argType="float"
+            android:defaultValue="0.0" />
+    </fragment>
     <fragment
         android:id="@+id/bmiMainFragment"
         android:name="com.example.bmi.BmiMainFragment"
