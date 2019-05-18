@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.fragment_bmi_main.*
@@ -34,10 +33,14 @@ class BmiMainFragment : Fragment() {
 //            bundle.putDouble("height", edit_text_height.text.toString().toDouble())
 //            bundle.putDouble("height", edit_text_weight.text.toString().toDouble())
 
+
+
             val action = BmiMainFragmentDirections.actionBmiMainFragmentToBmiMain2Fragment(
                 edit_text_height.text.toString().toFloat(),
                 edit_text_weight.text.toString().toFloat()
             )
+            // 확장함수
+            toast("hello")
 
 //            it.findNavController().navigate(R.id.action_bmiMainFragment_to_bmiMain2Fragment, bundle)
             it.findNavController().navigate(action)
