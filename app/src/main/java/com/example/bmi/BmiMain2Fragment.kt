@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.edit
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_bmi_main2.*
 
@@ -45,14 +46,20 @@ class BmiMain2Fragment : Fragment() {
             else -> text_view_result.text = "저체중"
         }
 
-
+        // ktx 방식
         val preference: SharedPreferences =
             PreferenceManager.getDefaultSharedPreferences(requireContext())
 
-        val editor = preference.edit()
-        editor.putFloat("height", args.height)
-            .putFloat("weight", args.weight)
-            .apply()
+        preference.edit {
+            putFloat("weight",args.weight)
+            putFloat("height",args.height)
+        }
+
+        // 기존 방식
+//        val editor = preference.edit()
+//        editor.putFloat("height", args.height)
+//            .putFloat("weight", args.weight)
+//            .apply()
 
 
         Log.d("BmiMain2Fragment", "$args.height, $args.weight")
